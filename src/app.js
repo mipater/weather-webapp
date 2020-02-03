@@ -63,8 +63,6 @@ app.get('/weather', (req, res) => {
                     error: error
                 })
             }
-    
-            console.log('forecast data: ', forecastData)
 
             res.send({
                 "summary": forecastData.summary,

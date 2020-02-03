@@ -25,19 +25,8 @@ weatherForm.addEventListener('submit', (e) => {
 
 })
 
-showErrorMsg = (e, m) => {
-    e.textContent = m
-    e.style.display = 'block'
-}
-
-deleteErrorMsg = (e) => {
-    e.textContent = ""
-    e.style.display = 'none'
-}
-
 showForecastData = (data) => {
     const forecastDataEl = document.getElementById("forecastData")
-    log(forecastDataEl)
 
     for (key in data) {
         var tr = document.createElement('tr'),
@@ -63,4 +52,14 @@ cleanMsgs = () => {
         dataEl.removeChild(dataEl.firstChild);
     
     deleteErrorMsg(errorMsgEl)
+}
+
+showErrorMsg = (e, m) => {
+    e.textContent = m
+    e.style.display = 'block'
+}
+
+deleteErrorMsg = (e) => {
+    e.textContent = ""
+    e.style.display = 'none'
 }
