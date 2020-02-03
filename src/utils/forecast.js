@@ -9,9 +9,6 @@ const forecast = (latitude, longitude, callback) => {
         } else if (bodyError) {
             callback('Weather API Error: ' + bodyError)
         } else {
-            console.log('Response: ', currently);
-            /* msg = daily.data[0].summary + ' It is currently ' + currently.temperature + '°C degrees out.'
-            msg += (currently.precipProbability !== 0) ? 'There is a ' + currently.precipProbability + '% chance of ' + currently.precipType : ' There is no chance of precipitation' */
             callback(undefined, {
                 "summary": currently.summary,
                 "temperature": currently.temperature,

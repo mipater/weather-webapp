@@ -51,7 +51,7 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
+    geocode(req.query.address, (error, { latitude, longitude, locationFullName, locationSimpleName } = {}) => {
         if (error) {
             return res.send({
                 error: error
@@ -65,11 +65,15 @@ app.get('/weather', (req, res) => {
             }
 
             res.send({
-                "summary": forecastData.summary,
-                "temperature": forecastData.temperature,
-                "precip chance": forecastData.precipchance,
-                "precip type": forecastData.preciptype,
-                "humidity": forecastData.humidity
+                "locationName": locationSimpleName,
+                "forecast": {
+                    "location": locationFullName,
+                    "summary": forecastData.summary,
+                    "temperature": forecastData.temperature + ' °C',
+                    "precip chance": forecastData.precipchance,
+                    "precip type": forecastData.preciptype,
+                    "humidity": forecastData.humidity
+                }
             })
         })
     })

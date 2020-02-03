@@ -27,8 +27,11 @@ weatherForm.addEventListener('submit', (e) => {
 
 showForecastData = (data) => {
     const forecastDataEl = document.getElementById("forecastData")
+    const locationNameEl = document.getElementById("locationName")
 
-    for (key in data) {
+    locationNameEl.textContent = data.locationName
+
+    for (key in data["forecast"]) {
         var tr = document.createElement('tr'),
             th = document.createElement('th'),
             td = document.createElement('td');
@@ -36,7 +39,7 @@ showForecastData = (data) => {
         forecastDataEl.insertAdjacentElement('beforeend', tr)
 
         th.textContent = key
-        td.textContent = data[key]
+        td.textContent = data["forecast"][key]
 
         tr.insertAdjacentElement('beforeend', th)
         tr.insertAdjacentElement('beforeend', td)

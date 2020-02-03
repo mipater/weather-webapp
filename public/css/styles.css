@@ -84,7 +84,12 @@ input[type=text] {
   }
 
 #forecastData {
-    padding: 6% 0;
+    padding: 2% 0;
+}
+
+#locationName {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* Table */
