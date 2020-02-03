@@ -64,9 +64,14 @@ app.get('/weather', (req, res) => {
                 })
             }
     
+            console.log('forecast data: ', forecastData)
+
             res.send({
-                location: location,
-                forecast: forecastData,
+                "summary": forecastData.summary,
+                "temperature": forecastData.temperature,
+                "precip chance": forecastData.precipchance,
+                "precip type": forecastData.preciptype,
+                "humidity": forecastData.humidity
             })
         })
     })

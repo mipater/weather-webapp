@@ -37,6 +37,7 @@ deleteErrorMsg = (e) => {
 
 showForecastData = (data) => {
     const forecastDataEl = document.getElementById("forecastData")
+    log(forecastDataEl)
 
     for (key in data) {
         var tr = document.createElement('tr'),
